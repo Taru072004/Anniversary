@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our One Year Journey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts for Romance + Elegance -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 30px 20px;
+      background: rgba(255,255,255,0.6);
+      box-shadow: 0 4px 14px rgba(0,0,0,.1);
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #e17055;
+      margin: 0;
+      animation: fadeInDown 1.4s cubic-bezier(.36,.07,.19,.97) both;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    .subtitle {
+      font-size: 1.4em;
+      color: #636e72;
+      margin: 10px 0 0 0;
+      letter-spacing: 2px;
+      animation: fadeIn 1.5s 1s backwards;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Photo Slider Styling */
+    .slideshow-container {
+      max-width: 700px;
+      margin: 60px auto 30px auto;
+      position: relative;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(255,118,117,0.18);
+      overflow: hidden;
+      background: #fff5f1;
+      animation: floatIn 2s;
+    }
+    @keyframes floatIn {
+      0% { opacity: 0; transform: scale(.5);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+
+    .slide {
+      display: none;
+      position: relative;
+      text-align: center;
+    }
+    .slide img {
+      max-width: 100%;
+      max-height: 350px;
+      border-radius: 16px;
+      margin-top: 25px;
+      box-shadow: 0 4px 24px rgba(255,118,117,0.15);
+      animation: imagePop 1s;
+    }
+    @keyframes imagePop {
+      0% {transform: scale(0.9); opacity: 0;}
+      100% {transform: scale(1); opacity: 1;}
+    }
+    .caption {
+      color: #d35400;
+      font-size: 1.1em;
+      padding: 16px;
+      background: rgba(255,236,210,0.3);
+      border-radius: 8px;
+      margin: 0 30px 30px 30px;
+      font-style: italic;
+      animation: fadeIn 2s;
+    }
+    .active {display: block;}
+
+    /* Slide Buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 12px 20px;
+      margin-top: -22px;
+      color: #fff;
+      background: #fdab98;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 100px;
+      opacity: 0.9;
+      user-select: none;
+      transition: background 0.3s;
+    }
+    .prev:hover, .next:hover { background: #eb4d4b; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+    .dots-container {
+      text-align: center;
+      margin: 15px 0;
+    }
+    .dot {
+      cursor: pointer;
+      height: 14px;
+      width: 14px;
+      margin: 0 4px;
+      background-color: #fcc0af;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background 0.3s;
+      border: 2px solid #fff5f1;
+    }
+    .dot.active, .dot:hover { background-color: #eb4d4b; }
+
+    /* Timeline Styling */
+    .timeline {
+      width: 90%;
+      max-width: 800px;
+      margin: 60px auto 0 auto;
+      position: relative;
+      padding: 35px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, #fdab98, #d35400);
+      border-radius: 8px;
+    }
+    .timeline-event {
+      position: relative;
+      width: 44%;
+      padding: 24px 20px;
+      box-sizing: border-box;
+      background: #fffbe7;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(255, 118, 117,.06);
+      margin-bottom: 40px;
+      animation: fadeIn 1.2s;
+    }
+    .timeline-event.left {
+      left: 0;
+      margin-right: 56%;
+    }
+    .timeline-event.right {
+      left: 56%;
+      margin-left: 0;
+    }
+    .timeline-date {
+      font-weight: bold;
+      color: #e17055;
+      margin-bottom: 7px;
+      font-size: 1.1em;
+      font-family: 'Montserrat';
+      letter-spacing: 1px;
+    }
+    .timeline-text {
+      color: #636e72;
+      font-size: 1em;
+      line-height: 1.7;
+    }
+    @media (max-width: 750px) {
+      .timeline, .slideshow-container { width: 98%; max-width: 98vw;}
+      .timeline-event, .timeline-event.left, .timeline-event.right, .timeline-event { left: 0; margin: 0 0 24px 0; width: 94%; }
+      .timeline::before { left: 6px; width: 4px;}
+    }
+
+    /* Floating Hearts Animation */
+    .heart {
+      position: fixed;
+      bottom: -40px;
+      font-size: 30px;
+      color: #fdab98;
+      animation: floatHearts 6s linear infinite;
+      opacity: .7;
+      pointer-events: none;
+      z-index: 999;
+    }
+    @keyframes floatHearts {
+      0% { transform: translateY(0) scale(1); opacity:.9;}
+      70% { opacity:.9; }
+      100% { transform: translateY(-100vh) scale(1.2); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '💖';
+      heart.style.left = Math.random() * 95 + 'vw';
+      heart.style.fontSize = (28 + Math.random()*24) + 'px';
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(), 6000);
+    }
+    setInterval(createHeart, 900);
+  </script>
+  <header>
+    <h1>Our One Year Journey</h1>
+    <div class="subtitle">365 days, countless memories. Here's to us!</div>
+  </header>
+  <section class="slideshow-container">
+    <!-- Slides -->
+    <div class="slide active">
+      <img src="img1.jpg" alt="Anniversary Day 1">
+      <div class="caption">It all began here. Our magical first day together.</div>
+    </div>
+    <div class="slide">
+      <img src="img2.jpg" alt="First Trip Together">
+      <div class="caption">Our first travel adventure—unforgettable moments!</div>
+    </div>
+    <div class="slide">
+      <img src="img3.jpg" alt="Goofy Memories">
+      <div class="caption">Laughing together every day—our secret recipe.</div>
+    </div>
+    <div class="slide">
+      <img src="img4.jpg" alt="Celebrating Victory">
+      <div class="caption">Supporting each other, celebrating every win.</div>
+    </div>
+    <div class="slide">
+      <img src="img5.jpg" alt="Heartfelt Days">
+      <div class="caption">Rainy days, cozy coffees, warm hugs—just us.</div>
+    </div>
+    
+    <!-- Slide Buttons -->
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
+    <div class="dots-container"></div>
+  </section>
+  <!-- Timeline -->
+  <section>
+    <div class="timeline">
+      <div class="timeline-event left">
+        <div class="timeline-date">Oct 3, 2024</div>
+        <div class="timeline-text">
+          The day we met. Little did we know, our story was about to begin!
+        </div>
+      </div>
+      <div class="timeline-event right">
+        <div class="timeline-date">Nov 15, 2024</div>
+        <div class="timeline-text">
+          Our first trip together. Exploring new places, making memories.
+        </div>
+      </div>
+      <div class="timeline-event left">
+        <div class="timeline-date">Jan 21, 2025</div>
+        <div class="timeline-text">
+          Our movie marathon—popcorn, laughter, and endless fun!
+        </div>
+      </div>
+      <div class="timeline-event right">
+        <div class="timeline-date">Mar 11, 2025</div>
+        <div class="timeline-text">
+          Supporting each other through ups and downs. Stronger, always.
+        </div>
+      </div>
+      <div class="timeline-event left">
+        <div class="timeline-date">Jul 4, 2025</div>
+        <div class="timeline-text">
+          Heartfelt letters shared on rainy evenings.
+        </div>
+      </div>
+      <div class="timeline-event right">
+        <div class="timeline-date">Oct 3, 2025</div>
+        <div class="timeline-text">
+          Our magical one year—more memories, more love ahead! Happy Anniversary!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align:center; font-size:1.15em; margin:40px 0 18px; color:#d35400; background: rgba(255,255,255,0.5); padding:14px;border-radius:8px;">
+    Forever and Always &hearts; — Made with Love by [Your Name]
+  </footer>
+
+  <!-- Slideshow Functionality -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let curIdx = 0;
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.dots-container');
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.remove('active');
+        if (i === index) s.classList.add('active');
+        dots[i].classList.remove('active');
+        if (i === index) dots[i].classList.add('active');
+      });
+    }
+    // Dots
+    let dots = [];
+    slides.forEach((_, i) => {
+      let dot = document.createElement('span');
+      dot.className = 'dot';
+      if (i==0) dot.classList.add('active');
+      dot.onclick = function(){ curIdx=i; showSlide(curIdx);}
+      dotsContainer.appendChild(dot);
+      dots.push(dot);
+    });
+
+    prev.onclick = function() {
+      curIdx = (curIdx-1+slides.length)%slides.length;
+      showSlide(curIdx);
+    }
+    next.onclick = function() {
+      curIdx = (curIdx+1)%slides.length;
+      showSlide(curIdx);
+    }
+    let autoSlide = setInterval(()=>{ next.onclick(); }, 3500);
+
+    document.querySelector('.slideshow-container').onmouseenter = ()=>clearInterval(autoSlide);
+    document.querySelector('.slideshow-container').onmouseleave = ()=>autoSlide = setInterval(()=>{ next.onclick(); }, 3500);
+
+    // Allow arrow keyboard for navigation
+    document.body.onkeydown = function(e){
+      if(e.key==='ArrowRight') next.onclick();
+      if(e.key==='ArrowLeft') prev.onclick();
+    }
+  </script>
+</body>
+</html>
