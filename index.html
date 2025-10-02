@@ -153,7 +153,12 @@
       border-radius: 16px;
       box-shadow: 0 4px 18px rgba(255, 118, 117,.06);
       margin-bottom: 40px;
-      animation: fadeIn 1.2s;
+      animation: fadeInUp 1.2s;
+      transition: all 0.3s ease;
+    }
+    .timeline-event:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(255, 118, 117,.12);
     }
     .timeline-event.left {
       left: 0;
@@ -162,6 +167,10 @@
     .timeline-event.right {
       left: 56%;
       margin-left: 0;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px);}
+      100% { opacity: 1; transform: translateY(0);}
     }
     .timeline-date {
       font-weight: bold;
@@ -176,6 +185,28 @@
       font-size: 1em;
       line-height: 1.7;
     }
+    .timeline-emoji {
+      font-size: 1.5em;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .timeline-title {
+      font-weight: bold;
+      color: #2d3436;
+      margin-bottom: 5px;
+      font-size: 1.1em;
+    }
+
+    /* Special milestone styling */
+    .timeline-event.special {
+      background: linear-gradient(135deg, #fff7ed 0%, #ffe8d6 100%);
+      border: 2px solid #fdab98;
+    }
+    .timeline-event.special .timeline-date {
+      color: #e17055;
+      font-size: 1.2em;
+    }
+
     @media (max-width: 750px) {
       .timeline, .slideshow-container { width: 98%; max-width: 98vw;}
       .timeline-event, .timeline-event.left, .timeline-event.right, .timeline-event { left: 0; margin: 0 0 24px 0; width: 94%; }
@@ -249,40 +280,156 @@
   <!-- Timeline -->
   <section>
     <div class="timeline">
-      <div class="timeline-event left">
+      <div class="timeline-event left special">
+        <span class="timeline-emoji">💕</span>
         <div class="timeline-date">Oct 3, 2024</div>
+        <div class="timeline-title">The Beginning</div>
         <div class="timeline-text">
-          The day we met. Little did we know, our story was about to begin!
+          The day we met. Little did we know, our story was about to begin! That first conversation that lasted for hours.
         </div>
       </div>
+      
       <div class="timeline-event right">
+        <span class="timeline-emoji">💬</span>
+        <div class="timeline-date">Oct 10, 2024</div>
+        <div class="timeline-title">First Week Magic</div>
+        <div class="timeline-text">
+          Texting until 3 AM, sharing dreams and silly jokes. The butterflies were real!
+        </div>
+      </div>
+      
+      <div class="timeline-event left">
+        <span class="timeline-emoji">🍕</span>
+        <div class="timeline-date">Oct 20, 2024</div>
+        <div class="timeline-title">First Date</div>
+        <div class="timeline-text">
+          Pizza, nervous laughter, and the realization that this was something special.
+        </div>
+      </div>
+      
+      <div class="timeline-event right">
+        <span class="timeline-emoji">🎬</span>
+        <div class="timeline-date">Nov 5, 2024</div>
+        <div class="timeline-title">Movie Marathon</div>
+        <div class="timeline-text">
+          Our first movie night together. More focused on each other than the screen!
+        </div>
+      </div>
+      
+      <div class="timeline-event left">
+        <span class="timeline-emoji">✈️</span>
         <div class="timeline-date">Nov 15, 2024</div>
+        <div class="timeline-title">First Adventure</div>
         <div class="timeline-text">
-          Our first trip together. Exploring new places, making memories.
+          Our first trip together. Exploring new places, making memories, getting lost and finding our way back together.
         </div>
       </div>
-      <div class="timeline-event left">
+      
+      <div class="timeline-event right">
+        <span class="timeline-emoji">❄️</span>
+        <div class="timeline-date">Dec 25, 2024</div>
+        <div class="timeline-title">First Christmas</div>
+        <div class="timeline-text">
+          Exchanging gifts and warm hugs. The best Christmas present was having you by my side.
+        </div>
+      </div>
+      
+      <div class="timeline-event left special">
+        <span class="timeline-emoji">🎉</span>
+        <div class="timeline-date">Jan 1, 2025</div>
+        <div class="timeline-title">New Year, New Dreams</div>
+        <div class="timeline-text">
+          Midnight kiss and promises for the future. Starting 2025 together felt like magic.
+        </div>
+      </div>
+      
+      <div class="timeline-event right">
+        <span class="timeline-emoji">🍿</span>
         <div class="timeline-date">Jan 21, 2025</div>
+        <div class="timeline-title">Cozy Nights</div>
         <div class="timeline-text">
-          Our movie marathon—popcorn, laughter, and endless fun!
+          Our movie marathon—popcorn, blankets, laughter, and endless fun! Finding comfort in simple moments.
         </div>
       </div>
-      <div class="timeline-event right">
-        <div class="timeline-date">Mar 11, 2025</div>
-        <div class="timeline-text">
-          Supporting each other through ups and downs. Stronger, always.
-        </div>
-      </div>
+      
       <div class="timeline-event left">
-        <div class="timeline-date">Jul 4, 2025</div>
+        <span class="timeline-emoji">💌</span>
+        <div class="timeline-date">Feb 14, 2025</div>
+        <div class="timeline-title">First Valentine's</div>
         <div class="timeline-text">
-          Heartfelt letters shared on rainy evenings.
+          Handwritten letters, surprise dinner, and realizing every day with you feels like Valentine's Day.
         </div>
       </div>
+      
       <div class="timeline-event right">
-        <div class="timeline-date">Oct 3, 2025</div>
+        <span class="timeline-emoji">💪</span>
+        <div class="timeline-date">Mar 11, 2025</div>
+        <div class="timeline-title">Through Thick & Thin</div>
         <div class="timeline-text">
-          Our magical one year—more memories, more love ahead! Happy Anniversary!
+          Supporting each other through challenges. Proving that together, we're unstoppable.
+        </div>
+      </div>
+      
+      <div class="timeline-event left">
+        <span class="timeline-emoji">🌸</span>
+        <div class="timeline-date">Apr 18, 2025</div>
+        <div class="timeline-title">Spring Walks</div>
+        <div class="timeline-text">
+          Long walks in the park, sharing dreams about our future, and watching flowers bloom like our love.
+        </div>
+      </div>
+      
+      <div class="timeline-event right">
+        <span class="timeline-emoji">🏡</span>
+        <div class="timeline-date">May 25, 2025</div>
+        <div class="timeline-title">Home Together</div>
+        <div class="timeline-text">
+          Cooking disasters, furniture shopping, and creating our little sanctuary. Home is wherever you are.
+        </div>
+      </div>
+      
+      <div class="timeline-event left">
+        <span class="timeline-emoji">🎓</span>
+        <div class="timeline-date">Jun 12, 2025</div>
+        <div class="timeline-title">Celebrating Wins</div>
+        <div class="timeline-text">
+          Cheering for each other's achievements. Your success is my success, your dreams are my dreams.
+        </div>
+      </div>
+      
+      <div class="timeline-event right">
+        <span class="timeline-emoji">☔</span>
+        <div class="timeline-date">Jul 4, 2025</div>
+        <div class="timeline-title">Rainy Day Letters</div>
+        <div class="timeline-text">
+          Heartfelt letters shared on rainy evenings. Pouring our hearts out on paper and in person.
+        </div>
+      </div>
+      
+      <div class="timeline-event left">
+        <span class="timeline-emoji">🌅</span>
+        <div class="timeline-date">Aug 15, 2025</div>
+        <div class="timeline-title">Sunrise Moments</div>
+        <div class="timeline-text">
+          Waking up early to catch the sunrise together. Some moments are worth losing sleep for.
+        </div>
+      </div>
+      
+      <div class="timeline-event right">
+        <span class="timeline-emoji">🎨</span>
+        <div class="timeline-date">Sep 8, 2025</div>
+        <div class="timeline-title">Creative Adventures</div>
+        <div class="timeline-text">
+          Art classes, cooking experiments, and discovering new sides of each other. Growing together in every way.
+        </div>
+      </div>
+      
+      <div class="timeline-event left special">
+        <span class="timeline-emoji">🎂</span>
+        <div class="timeline-date">Oct 3, 2025</div>
+        <div class="timeline-title">One Year Complete!</div>
+        <div class="timeline-text">
+          Our magical one year—365 days of love, laughter, growth, and countless beautiful memories. Here's to forever and always! Happy Anniversary, my love! 💕
         </div>
       </div>
     </div>
@@ -338,6 +485,28 @@
       if(e.key==='ArrowRight') next.onclick();
       if(e.key==='ArrowLeft') prev.onclick();
     }
+
+    // Add scroll-triggered animations for timeline
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-event').forEach(event => {
+      event.style.opacity = '0';
+      event.style.transform = 'translateY(30px)';
+      event.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(event);
+    });
   </script>
 </body>
 </html>
